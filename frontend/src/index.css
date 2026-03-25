@@ -1,0 +1,237 @@
+/* ── Reset & base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f4f6f8;
+  color: #1a1a2e;
+  min-height: 100vh;
+}
+
+/* ── Layout ──────────────────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* ── Card ────────────────────────────────────────────────────── */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 36px 32px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.card h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card .subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+}
+
+/* ── Form ────────────────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+}
+
+input, select, textarea {
+  padding: 10px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+  outline: none;
+  background: #fff;
+  width: 100%;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: #5b6ef5;
+}
+
+textarea { resize: vertical; min-height: 80px; }
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.btn-primary { background: #5b6ef5; color: #fff; width: 100%; padding: 12px; }
+.btn-primary:hover:not(:disabled) { opacity: 0.88; }
+
+.btn-sm { padding: 5px 12px; font-size: 0.8rem; }
+.btn-edit { background: #e8edff; color: #5b6ef5; }
+.btn-edit:hover { background: #d3dbff; }
+.btn-delete { background: #fff0f0; color: #e53e3e; }
+.btn-delete:hover { background: #ffe0e0; }
+.btn-confirm-delete { background: #e53e3e; color: #fff; }
+.btn-cancel { background: #f0f0f0; color: #444; }
+
+.btn-ghost {
+  background: transparent;
+  color: #5b6ef5;
+  border: 1.5px solid #5b6ef5;
+}
+.btn-ghost:hover { background: #e8edff; }
+
+/* ── Alerts ──────────────────────────────────────────────────── */
+.alert {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+}
+.alert-error { background: #fff0f0; color: #c53030; border: 1px solid #feb2b2; }
+.alert-success { background: #f0fff4; color: #276749; border: 1px solid #9ae6b4; }
+
+/* ── Link line ───────────────────────────────────────────────── */
+.link-line {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.875rem;
+  color: #666;
+}
+.link-line a { color: #5b6ef5; text-decoration: none; font-weight: 600; }
+.link-line a:hover { text-decoration: underline; }
+
+/* ── Dashboard top bar ───────────────────────────────────────── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.topbar h1 { font-size: 1.4rem; font-weight: 700; }
+
+/* ── Task list ───────────────────────────────────────────────── */
+.task-list { display: flex; flex-direction: column; gap: 12px; }
+
+.task-item {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 18px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.task-info { flex: 1; }
+
+.task-title {
+  font-weight: 600;
+  font-size: 0.97rem;
+  margin-bottom: 4px;
+}
+
+.task-desc {
+  font-size: 0.82rem;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.task-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.badge-todo { background: #edf2ff; color: #4263eb; }
+.badge-in-progress { background: #fff8e6; color: #d4830a; }
+.badge-done { background: #e9fdf0; color: #22863a; }
+
+.task-date { font-size: 0.78rem; color: #aaa; }
+
+.task-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+/* ── Confirm delete inline ───────────────────────────────────── */
+.confirm-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #e53e3e;
+}
+.confirm-row span { flex: 1; }
+
+/* ── Empty state ─────────────────────────────────────────────── */
+.empty {
+  text-align: center;
+  padding: 48px 16px;
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+/* ── Modal overlay ──────────────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px 28px 24px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+.modal h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 20px; }
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* ── Loading ─────────────────────────────────────────────────── */
+.loading { text-align: center; padding: 48px; color: #aaa; }
