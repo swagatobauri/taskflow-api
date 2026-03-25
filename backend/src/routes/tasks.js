@@ -18,7 +18,8 @@ router.use(authMiddleware);
 const statusValues = ['todo', 'in-progress', 'done'];
 
 const createRules = [
-  body('title').trim().notEmpty().withMessage('Title is required.'),
+  body('title').trim().escape().notEmpty().withMessage('Title is required.'),
+  body('description').optional().trim().escape(),
   body('status')
     .optional()
     .isIn(statusValues)
@@ -26,7 +27,8 @@ const createRules = [
 ];
 
 const updateRules = [
-  body('title').optional().trim().notEmpty().withMessage('Title cannot be empty.'),
+  body('title').optional().trim().escape().notEmpty().withMessage('Title cannot be empty.'),
+  body('description').optional().trim().escape(),
   body('status')
     .optional()
     .isIn(statusValues)
